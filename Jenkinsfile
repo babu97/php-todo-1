@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
-    dockerhub= credentials('dockerhub')
+    DOCKER_CREDS = credentials('docker_creds')
   }
 
   stages {
@@ -77,7 +77,7 @@ pipeline {
           sh "docker stop php-todo-${env.BUILD_ID}"
           sh "docker rm php-todo-${env.BUILD_ID}"
           sh "docker rmi php-todo:${TAG}"
-          sh "docker rmi babu97/php-todo:${TAG}"
+          sh "docker rmi /php-todo:${TAG}"
         }
       }
     }
