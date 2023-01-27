@@ -17,7 +17,7 @@ pipeline {
 
     stage('Checkout SCM') {
       steps {
-        git branch: '$BRANCH_NAME', url: 'https://github.com/toritsejuFO/php-todo.git'
+        git branch: '$BRANCH_NAME', url: 'https://github.com/babu97/php-todo-1.git'
       }
     }
 
@@ -77,7 +77,7 @@ pipeline {
           sh "docker stop php-todo-${env.BUILD_ID}"
           sh "docker rm php-todo-${env.BUILD_ID}"
           sh "docker rmi php-todo:${TAG}"
-          sh "docker rmi toritseju/php-todo:${TAG}"
+          sh "docker rmi babu97/php-todo:${TAG}"
         }
       }
     }
