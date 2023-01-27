@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
-    DOCKER_CREDS = credentials('docker_creds')
+    dockerhub= credentials('dockerhub')
   }
 
   stages {
