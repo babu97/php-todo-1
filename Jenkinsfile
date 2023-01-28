@@ -24,7 +24,7 @@ pipeline {
     stage('Docker login') {
       steps {
         script {
-          sh 'docker login -u = "${DOCKER_CREDS_USR}" -p ="${DOCKER_CREDS_PSW}" '
+          sh 'sudo docker login -u ${DOCKER_CREDS_USR} -p ${DOCKER_CREDS_PSW}'
         }
       }
     }
