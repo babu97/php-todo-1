@@ -59,7 +59,7 @@ pipeline {
     stage('Tag image') {
       steps {
         script {
-          sh "docker tag php-todo:${TAG} toritseju/php-todo:${TAG}"
+          sh "docker tag php-todo:${TAG} kipkulei/php-todo:${TAG}"
         }
       }
     }
@@ -67,7 +67,7 @@ pipeline {
     stage('Push image') {
       steps {
         script {
-          sh "docker push toritseju/php-todo:${TAG}"
+          sh "docker push kipkulei/php-todo:${TAG}"
         }
       }
     }
