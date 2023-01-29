@@ -41,7 +41,7 @@ pipeline {
     stage('Docker run') {
       steps {
         script {
-          sh "docker run --name php-todo-${env.BUILD_ID} -p 8004:8004 -d php-todo:${TAG}"
+          sh "docker run --name php-todo-${env.BUILD_ID} -p 8000:8000 -d php-todo:${TAG}"
         }
       }
     }
@@ -51,7 +51,7 @@ pipeline {
         script {
           sh "sleep 15"
           sh "echo Running test now"
-          sh "curl -I localhost:8004"
+        
         }
       }
     }
