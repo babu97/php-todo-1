@@ -78,7 +78,7 @@ pipeline {
           sh "docker stop php-todo-${env.BUILD_ID}"
           sh "docker rm php-todo-${env.BUILD_ID}"
           sh "docker rmi php-todo:${TAG}"
-          sh "docker rmi /php-todo:${TAG}"
+          
         }
       }
     }
