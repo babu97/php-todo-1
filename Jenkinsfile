@@ -3,8 +3,8 @@ pipeline {
 
   environment {
     TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
-          DOCKER_CREDS_USR=DOCKER_CREDS_USR
-          DOCKER_CREDS_PSW=DOCKER_CREDS_PSW
+          DOCKER_CREDS_USR="DOCKER_CREDS_USR"
+          DOCKER_CREDS_PSW="DOCKER_CREDS_PSW"
 
     DOCKER_CREDS = credentials('docker_creds')
 
