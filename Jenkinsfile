@@ -14,18 +14,13 @@ pipeline {
         }
       }
     }
-    stages {
-    stage("Initial cleanup") {
-      steps {
-        dir("${WORKSPACE}") {
-          deleteDir()
-        }
-      }
-    }
 
     stage('Checkout SCM') {
       steps {
-        git branch: '$BRANCH_NAME', url: 'https://github.com/babu97/php-todo-1.git'
+        script {
+          // Use single quotes around BRANCH_NAME to prevent variable expansion
+          git branch: "${BRANCH_NAME}", url: 'https://github.com/babu97/php-todo-1.git'
+        }
       }
     }
 
@@ -36,7 +31,6 @@ pipeline {
         }
       }
     }
-
 
     stage('Docker build') {
       steps {
@@ -59,7 +53,6 @@ pipeline {
         script {
           sh "sleep 15"
           sh "echo Running test now"
-        
         }
       }
     }
@@ -86,7 +79,6 @@ pipeline {
           sh "docker stop php-todo-${env.BUILD_ID}"
           sh "docker rm php-todo-${env.BUILD_ID}"
           sh "docker rmi php-todo:${TAG}"
-          
         }
       }
     }
@@ -99,5 +91,4 @@ pipeline {
       }
     }
   }
-}
 }
